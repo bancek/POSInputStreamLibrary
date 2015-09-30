@@ -11,6 +11,8 @@ as its data source. The main features of `POSBlobInputStream` are the following:
 - Using `NSStreamFileCurrentOffsetKey` property for read offset specification.
 - Autorecovery after ALAssetRepresentation invalidation.
 - Adjustment filters detection and applying for both iOS 7 and iOS 8 (new in 2.0.0).
+- Integration with CFNetwork framework.
+- Integration with AFNetworking (thanks to [@bancek](https://github.com/bancek)).
 
 The category for `NSInputStream` defines initializers for the most common cases:
 
@@ -19,6 +21,8 @@ The category for `NSInputStream` defines initializers for the most common cases:
 + (NSInputStream *)pos_inputStreamWithAssetURL:(NSURL *)assetURL;
 + (NSInputStream *)pos_inputStreamWithAssetURL:(NSURL *)assetURL asynchronous:(BOOL)asynchronous;
 + (NSInputStream *)pos_inputStreamForCFNetworkWithAssetURL:(NSURL *)assetURL;
++ (NSInputStream *)pos_inputStreamForAFNetworkWithAssetURL:(NSURL *)assetURL
+                                         openDispatchQueue:(dispatch_queue_t)openDispatchQueue;
 @end
 ```
 
